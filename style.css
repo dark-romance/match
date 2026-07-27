@@ -269,21 +269,26 @@ footer {
     color: rgba(255, 255, 255, 0.5);
     letter-spacing: 1px;
 }
-/* Botón de cierre (X) en la tarjeta */
+
+/* Botón de cierre (X) */
 .btn-close {
     position: absolute;
     top: 15px;
     right: 20px;
     background: transparent;
     border: none;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 2rem;
+    line-height: 1;
     cursor: pointer;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
+    z-index: 100; /* Prioridad de capa para garantizar el clic */
+    pointer-events: auto;
 }
 
 .btn-close:hover {
     color: #ffffff;
+    transform: scale(1.15);
 }
 
 /* Agrupador de botones de acción */
