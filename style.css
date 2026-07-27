@@ -498,3 +498,18 @@ footer {
         font-size: 0.7rem;
     }
 }
+/* Posición relativa para fijar la X dentro de la tarjeta de preguntas */
+.quiz-card {
+    position: relative;
+    padding-top: 40px; /* Espacio superior para que la X no choque con la barra */
+}
+
+/* Leyenda de Privacidad sutil bajo el botón principal */
+.privacy-note {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 18px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
