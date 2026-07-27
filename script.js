@@ -117,8 +117,10 @@ function renderResults(winner, sec1, sec2) {
     `;
 }
 
-// 9. Cancelar Test / Cerrar Resultados
-function resetToHome() {
+// 9. Función para salir/cancelar y regresar a la portada
+function resetToHome(event) {
+    if (event) event.stopPropagation(); // Evita interferencias de clics
+    
     quizContainer.classList.add('hidden');
     resultsContainer.classList.add('hidden');
     heroSection.classList.remove('hidden');
@@ -127,6 +129,7 @@ function resetToHome() {
 // 10. Escuchadores de Eventos
 btnStart.addEventListener('click', startQuiz);
 
+// Conexión directa a los botones (X)
 if (btnCloseQuiz) {
     btnCloseQuiz.addEventListener('click', resetToHome);
 }
