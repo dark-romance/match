@@ -269,3 +269,52 @@ footer {
     color: rgba(255, 255, 255, 0.5);
     letter-spacing: 1px;
 }
+/* Botón de cierre (X) en la tarjeta */
+.btn-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.btn-close:hover {
+    color: #ffffff;
+}
+
+/* Agrupador de botones de acción */
+.results-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.btn-gold {
+    background: #8b0000; /* Carmesí/Vino destacado */
+    border: 1px solid #a30000;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ccc;
+    padding: 12px;
+    border-radius: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    border-color: #fff;
+    color: #fff;
+}
