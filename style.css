@@ -131,3 +131,116 @@ footer {
 .hidden {
     display: none !important;
 }
+/* ==========================================
+   ESTILOS DE LA TARJETA FLOTANTE (POP) DEL QUIZ
+   ========================================== */
+
+/* Contenedor principal que ocupa toda la pantalla y centra la tarjeta */
+.quiz-container, .results-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.65); /* Fondo negro traslúcido sobre el castillo */
+    backdrop-filter: blur(5px);       /* Efecto de desenfoque elegante */
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* La tarjeta estilizada */
+.quiz-card, .results-card {
+    position: relative;
+    background: rgba(15, 15, 18, 0.85); /* Negro profundo con transparencia */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Borde sutil */
+    border-radius: 12px;
+    padding: 40px 30px 50px 30px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    color: #e0e0e0;
+    text-align: center;
+}
+
+/* Texto de la pregunta con tipografía estilizada */
+.question-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #f5f5f5;
+    margin-bottom: 30px;
+}
+
+/* Barra de progreso sutil arriba de la tarjeta */
+.progress-bar-container {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 3.33%; /* Inicia en 1 de 30 preguntas */
+    height: 100%;
+    background: #8b0000; /* Rojo carmesí sutil / vino */
+    transition: width 0.3s ease;
+}
+
+/* Opciones de la escala Likert (1 al 5) */
+.likert-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.options-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.btn-option {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-option:hover {
+    background: #8b0000;
+    border-color: #8b0000;
+    transform: translateY(-2px);
+}
+
+.scale-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: #aaa;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Ubicación de 'Pregunta 1 de 30' en la esquina inferior derecha */
+.question-number {
+    position: absolute;
+    bottom: 15px;
+    right: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+}
