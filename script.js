@@ -8,14 +8,15 @@ const quizContainer = document.getElementById('quiz-container');
 const resultsContainer = document.getElementById('results-container');
 
 const btnStart = document.getElementById('btn-start');
-const btnCloseResults = document.getElementById('btn-close-results'); // Botón (X)
+const btnCloseQuiz = document.getElementById('btn-close-quiz');       // Botón (X) del test
+const btnCloseResults = document.getElementById('btn-close-results'); // Botón (X) de resultados
 
 const questionTextElement = document.getElementById('question-text');
 const questionNumberElement = document.getElementById('question-number');
 const progressBar = document.getElementById('progress-bar');
 const optionButtons = document.querySelectorAll('.btn-option');
 
-// Elementos de la pantalla de resultados
+// Elementos de resultados
 const resultTitle = document.getElementById('result-title');
 const resultDescription = document.getElementById('result-description');
 const secondaryScores = document.getElementById('secondary-scores');
@@ -36,7 +37,7 @@ const profileDetails = {
     }
 };
 
-// 4. Iniciar el Cuestionario
+// 4. Iniciar Cuestionario
 function startQuiz() {
     heroSection.classList.add('hidden');
     resultsContainer.classList.add('hidden');
@@ -85,7 +86,7 @@ function calculateAndShowResults() {
         diffSirenaCaos += Math.abs(userVal - question.perfiles.sirenaCaos);
     });
 
-    const maxDiff = 120; // 30 preguntas * 4 max desviacion
+    const maxDiff = 120;
 
     const scores = [
         { key: 'florAcero', name: profileDetails.florAcero.title, match: Math.round((1 - (diffFlorAcero / maxDiff)) * 100) },
@@ -98,7 +99,7 @@ function calculateAndShowResults() {
     renderResults(scores[0], scores[1], scores[2]);
 }
 
-// 8. Renderizar la Pantalla Final de Resultados
+// 8. Renderizar Pantalla Final de Resultados
 function renderResults(winner, sec1, sec2) {
     quizContainer.classList.add('hidden');
     resultsContainer.classList.remove('hidden');
@@ -116,20 +117,24 @@ function renderResults(winner, sec1, sec2) {
     `;
 }
 
-// 9. Función para cerrar la tarjeta de resultados y regresar a la portada
-function closeResults() {
+// 9. Cancelar Test / Cerrar Resultados
+function resetToHome() {
+    quizContainer.classList.add('hidden');
     resultsContainer.classList.add('hidden');
     heroSection.classList.remove('hidden');
 }
 
-// 10. Escuchadores de eventos (Listeners)
+// 10. Escuchadores de Eventos
 btnStart.addEventListener('click', startQuiz);
+
+if (btnCloseQuiz) {
+    btnCloseQuiz.addEventListener('click', resetToHome);
+}
+
+if (btnCloseResults) {
+    btnCloseResults.addEventListener('click', resetToHome);
+}
 
 optionButtons.forEach(button => {
     button.addEventListener('click', handleOptionSelect);
 });
-
-// Listener para el botón (X) de salida
-if (btnCloseResults) {
-    btnCloseResults.addEventListener('click', closeResults);
-}
