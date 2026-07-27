@@ -36,12 +36,16 @@
                 Contesta 30 preguntas para descubrir tu perfil psicológico y recibir recomendaciones de historias que te toquen el alma... <em>y si es posible... tu piel.</em>
             </p>
             <button id="btn-start" class="btn-primary">DESCUBRIR MI PERFIL</button>
+            <p class="privacy-note">No ocupamos correo, ni guardamos registros.</p>
         </div>
     </main>
 
     <!-- Sección del Quiz (Oculta al inicio) -->
     <section id="quiz-container" class="quiz-container hidden">
         <div class="quiz-card">
+            <!-- Botón de salida (X) durante las preguntas -->
+            <button id="btn-close-quiz" class="btn-close" aria-label="Salir del test">&times;</button>
+
             <div class="progress-bar-container">
                 <div id="progress-bar" class="progress-bar"></div>
             </div>
@@ -85,9 +89,9 @@
         </div>
     </section>
 
-    <!-- Sección Catálogo / Recomendaciones (Próximo paso a diseñar) -->
+    <!-- Sección Catálogo / Recomendaciones -->
     <section id="catalogo" class="catalog-section">
-        <!-- Aquí estructuraremos el catálogo -->
+        <!-- Próximo paso: tarjetas de libros -->
     </section>
 
     <!-- Pie de Página (Footer) -->
