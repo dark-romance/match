@@ -23,9 +23,59 @@
             <p class="subtitle">
                 Contesta 30 preguntas para descubrir tu perfil psicológico y recibir recomendaciones de historias que te toquen el alma... <em>y si es posible... tu piel.</em>
             </p>
-            <a href="#quiz" class="btn-primary">DESCUBRIR MI PERFIL</a>
+            <button id=btn-start class="btn-primary">DESCUBRIR MI PERFIL</a>
         </div>
     </main>
+    <main class="hero-container" id="hero-section">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1 class="main-title">
+                ¿Qué perfil de romance tienes?
+            </h1>
+            <p class="subtitle">
+                Contesta 30 preguntas para descubrir tu perfil psicológico y recibir recomendaciones de historias que te toquen el alma... <em>y si es posible... tu piel.</em>
+            </p>
+            <!-- Cambiamos a tag <button> con id para manipularlo desde JS -->
+            <button id="btn-start" class="btn-primary">DESCUBRIR MI PERFIL</button>
+        </div>
+    </main>
+
+    <!-- Sección del Quiz (Oculta al inicio) -->
+    <section id="quiz-container" class="quiz-container hidden">
+        <div class="quiz-card">
+            <!-- Barra de progreso -->
+            <div class="progress-bar-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+            <p id="question-number" class="question-number">Pregunta 1 de 30</p>
+            
+            <!-- Texto de la pregunta -->
+            <h2 id="question-text" class="question-text">Aquí irá la pregunta...</h2>
+
+            <!-- Opciones Likert (1 al 5) -->
+            <div class="likert-options">
+                <span class="scale-label">Totalmente en desacuerdo</span>
+                <div class="options-group">
+                    <button class="btn-option" data-value="1">1</button>
+                    <button class="btn-option" data-value="2">2</button>
+                    <button class="btn-option" data-value="3">3</button>
+                    <button class="btn-option" data-value="4">4</button>
+                    <button class="btn-option" data-value="5">5</button>
+                </div>
+                <span class="scale-label">Totalmente de acuerdo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Resultados (Oculta al inicio) -->
+    <section id="results-container" class="results-container hidden">
+        <div class="results-card">
+            <h2>Tu Perfil de Romance es:</h2>
+            <h1 id="result-title" class="result-title">...</h1>
+            <p id="result-description" class="result-description">...</p>
+            <div id="secondary-scores" class="secondary-scores"></div>
+        </div>
+    </section>
 
     <footer>
         <nav class="footer-nav">
