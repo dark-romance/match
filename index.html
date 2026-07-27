@@ -4,15 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil Dark Romance | Descubre tu Obsesión Literaria</title>
-    <!-- Meta tags SEO y Redes Sociales -->
+    <!-- Meta tags SEO -->
     <meta name="description" content="Descubre qué perfil psicológico de romance tienes. Un test de 30 preguntas para recomendarte libros, series y novelas eróticas a tu medida.">
-    <!-- Fuente elegante de Google Fonts -->
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Menú de Navegación Superior -->
+    <header class="main-header">
+        <div class="logo">MATCH OSCURO</div>
+        <nav class="nav-links">
+            <a href="#hero-section">Inicio</a>
+            <a href="#hero-section">Hacer Test</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#sobre-mi">Sobre Mí</a>
+        </nav>
+    </header>
 
     <!-- Portada Principal -->
     <main class="hero-container" id="hero-section">
@@ -31,16 +42,13 @@
     <!-- Sección del Quiz (Oculta al inicio) -->
     <section id="quiz-container" class="quiz-container hidden">
         <div class="quiz-card">
-            <!-- Barra de progreso -->
             <div class="progress-bar-container">
                 <div id="progress-bar" class="progress-bar"></div>
             </div>
             <p id="question-number" class="question-number">Pregunta 1 de 30</p>
             
-            <!-- Texto de la pregunta -->
             <h2 id="question-text" class="question-text">Aquí irá la pregunta...</h2>
 
-            <!-- Opciones Likert (1 al 5) -->
             <div class="likert-options">
                 <span class="scale-label scale-left">Totalmente en desacuerdo</span>
                 <div class="options-group">
@@ -58,16 +66,14 @@
     <!-- Sección de Resultados (Oculta al inicio) -->
     <section id="results-container" class="results-container hidden">
         <div class="results-card">
-            <!-- Botón de salida (X) -->
-            <button id="btn-close-results" class="btn-close">&times;</button>
+            <button id="btn-close-results" class="btn-close" aria-label="Cerrar">&times;</button>
 
-            <p class="result-subtitle">Tu Perfil de Romance es:</p>
+            <h2 class="result-subtitle">Tu Perfil de Romance es:</h2>
             <h1 id="result-title" class="result-title">...</h1>
             <p id="result-description" class="result-description">...</p>
             
             <div id="secondary-scores" class="secondary-scores"></div>
 
-            <!-- Botones de Acción (Conversion y Viralidad) -->
             <div class="results-actions">
                 <a id="btn-recommendations" href="#catalogo" class="btn-primary btn-gold">
                     VER MIS LIBROS RECOMENDADOS
@@ -79,7 +85,22 @@
         </div>
     </section>
 
-    <!-- Archivos de JavaScript para preguntas psicometricas -->
+    <!-- Sección Catálogo / Recomendaciones (Próximo paso a diseñar) -->
+    <section id="catalogo" class="catalog-section">
+        <!-- Aquí estructuraremos el catálogo -->
+    </section>
+
+    <!-- Pie de Página (Footer) -->
+    <footer class="main-footer">
+        <nav class="footer-nav">
+            <a href="#hero-section">Inicio</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#">Aviso de Afiliados</a>
+            <a href="#">Privacidad</a>
+        </nav>
+        <p class="footer-credits">© Match Oscuro — Literatura & Romance Oscuro</p>
+    </footer>
+
     <script src="questions.js"></script>
     <script src="script.js"></script>
 
