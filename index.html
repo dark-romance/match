@@ -58,21 +58,26 @@
     <!-- Sección de Resultados (Oculta al inicio) -->
     <section id="results-container" class="results-container hidden">
         <div class="results-card">
-            <h2>Tu Perfil de Romance es:</h2>
+            <!-- Botón de salida (X) -->
+            <button id="btn-close-results" class="btn-close">&times;</button>
+
+            <p class="result-subtitle">Tu Perfil de Romance es:</p>
             <h1 id="result-title" class="result-title">...</h1>
             <p id="result-description" class="result-description">...</p>
+            
             <div id="secondary-scores" class="secondary-scores"></div>
+
+            <!-- Botones de Acción (Conversion y Viralidad) -->
+            <div class="results-actions">
+                <a id="btn-recommendations" href="#catalogo" class="btn-primary btn-gold">
+                    VER MIS LIBROS RECOMENDADOS
+                </a>
+                <button id="btn-share-profile" class="btn-secondary">
+                    VER DETALLES Y FILTRO EN INSTAGRAM
+                </button>
+            </div>
         </div>
     </section>
-
-    <footer>
-        <nav class="footer-nav">
-            <a href="#">Inicio</a>
-            <a href="#">Catálogo</a>
-            <a href="#">Sobre Mí</a>
-            <a href="#">Aviso de Afiliados</a>
-        </nav>
-    </footer>
 
     <!-- Archivos de JavaScript para preguntas psicometricas -->
     <script src="questions.js"></script>
