@@ -127,3 +127,7 @@ footer {
         font-size: 1rem;
     }
 }
+/* Clase de utilidad para ocultar elementos */
+.hidden {
+    display: none !important;
+}
