@@ -193,12 +193,14 @@ footer {
     transition: width 0.3s ease;
 }
 
-/* Opciones de la escala Likert (1 al 5) */
+/* Opciones de la escala Likert (Horizontales) */
 .likert-options {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row; /* Alinea etiquetas y botones en una sola fila */
     align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .options-group {
@@ -215,23 +217,46 @@ footer {
     background: transparent;
     color: #ffffff;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .btn-option:hover {
-    background: #8b0000;
+    background: #8b0000; /* Carmesí oscuro */
     border-color: #8b0000;
     transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.6);
 }
 
 .scale-label {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    color: #aaa;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
     letter-spacing: 1px;
     text-transform: uppercase;
+    max-width: 110px; /* Limita el ancho para que el texto haga salto de línea elegante */
+    line-height: 1.2;
+}
+
+.scale-left {
+    text-align: right;
+}
+
+.scale-right {
+    text-align: left;
+}
+
+/* Ajuste responsivo para celulares */
+@media (max-width: 600px) {
+    .likert-options {
+        flex-direction: column; /* En pantallas muy chicas se apila de forma segura */
+        gap: 12px;
+    }
+    .scale-left, .scale-right {
+        text-align: center;
+        max-width: none;
+    }
 }
 
 /* Ubicación de 'Pregunta 1 de 30' en la esquina inferior derecha */
