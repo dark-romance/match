@@ -14,18 +14,7 @@
 </head>
 <body>
 
-    <main class="hero-container">
-        <div class="overlay"></div>
-        <div class="content">
-            <h1 class="main-title">
-                ¿Qué perfil de romance tienes?
-            </h1>
-            <p class="subtitle">
-                Contesta 30 preguntas para descubrir tu perfil psicológico y recibir recomendaciones de historias que te toquen el alma... <em>y si es posible... tu piel.</em>
-            </p>
-            <button id=btn-start class="btn-primary">DESCUBRIR MI PERFIL</a>
-        </div>
-    </main>
+    <!-- Portada Principal -->
     <main class="hero-container" id="hero-section">
         <div class="overlay"></div>
         <div class="content">
@@ -35,7 +24,6 @@
             <p class="subtitle">
                 Contesta 30 preguntas para descubrir tu perfil psicológico y recibir recomendaciones de historias que te toquen el alma... <em>y si es posible... tu piel.</em>
             </p>
-            <!-- Cambiamos a tag <button> con id para manipularlo desde JS -->
             <button id="btn-start" class="btn-primary">DESCUBRIR MI PERFIL</button>
         </div>
     </main>
@@ -53,7 +41,7 @@
             <h2 id="question-text" class="question-text">Aquí irá la pregunta...</h2>
 
             <!-- Opciones Likert (1 al 5) -->
-           <div class="likert-options">
+            <div class="likert-options">
                 <span class="scale-label scale-left">Totalmente en desacuerdo</span>
                 <div class="options-group">
                     <button class="btn-option" data-value="1">1</button>
@@ -85,6 +73,7 @@
             <a href="#">Aviso de Afiliados</a>
         </nav>
     </footer>
+
     <!-- Archivos de JavaScript para preguntas psicometricas -->
     <script src="questions.js"></script>
     <script src="script.js"></script>
