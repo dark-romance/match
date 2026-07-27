@@ -6,7 +6,9 @@ const userAnswers = [];
 const heroSection = document.getElementById('hero-section');
 const quizContainer = document.getElementById('quiz-container');
 const resultsContainer = document.getElementById('results-container');
+
 const btnStart = document.getElementById('btn-start');
+const btnCloseResults = document.getElementById('btn-close-results'); // Botón (X)
 
 const questionTextElement = document.getElementById('question-text');
 const questionNumberElement = document.getElementById('question-number');
@@ -72,12 +74,10 @@ function handleOptionSelect(event) {
 
 // 7. Lógica Matemática del Perfil Psicométrico
 function calculateAndShowResults() {
-    // Totales de diferencia acumulada
     let diffFlorAcero = 0;
     let diffReinaHielo = 0;
     let diffSirenaCaos = 0;
 
-    // Calculamos la distancia vectorial en las 30 preguntas
     questionsData.forEach((question, index) => {
         const userVal = userAnswers[index];
         diffFlorAcero += Math.abs(userVal - question.perfiles.florAcero);
@@ -87,22 +87,15 @@ function calculateAndShowResults() {
 
     const maxDiff = 120; // 30 preguntas * 4 max desviacion
 
-    // Convertimos las diferencias en % de Similitud
     const scores = [
         { key: 'florAcero', name: profileDetails.florAcero.title, match: Math.round((1 - (diffFlorAcero / maxDiff)) * 100) },
         { key: 'reinaHielo', name: profileDetails.reinaHielo.title, match: Math.round((1 - (diffReinaHielo / maxDiff)) * 100) },
         { key: 'sirenaCaos', name: profileDetails.sirenaCaos.title, match: Math.round((1 - (diffSirenaCaos / maxDiff)) * 100) }
     ];
 
-    // Ordenamos de mayor a menor porcentaje de coincidencia
     scores.sort((a, b) => b.match - a.match);
 
-    const winner = scores[0];       // El perfil principal (1er lugar)
-    const secondary1 = scores[1];   // 2do lugar
-    const secondary2 = scores[2];   // 3er lugar
-
-    // Renderizamos los resultados en pantalla
-    renderResults(winner, secondary1, secondary2);
+    renderResults(scores[0], scores[1], scores[2]);
 }
 
 // 8. Renderizar la Pantalla Final de Resultados
@@ -110,11 +103,9 @@ function renderResults(winner, sec1, sec2) {
     quizContainer.classList.add('hidden');
     resultsContainer.classList.remove('hidden');
 
-    // Encabezado Principal
     resultTitle.textContent = `${winner.match}% ${winner.name}`;
     resultDescription.textContent = profileDetails[winner.key].description;
 
-    // Sección de Perfiles Secundarios / Afines
     secondaryScores.innerHTML = `
         <hr class="results-divider">
         <p class="secondary-title">Matices de tu personalidad:</p>
@@ -125,9 +116,20 @@ function renderResults(winner, sec1, sec2) {
     `;
 }
 
-// 9. Escuchadores de eventos
+// 9. Función para cerrar la tarjeta de resultados y regresar a la portada
+function closeResults() {
+    resultsContainer.classList.add('hidden');
+    heroSection.classList.remove('hidden');
+}
+
+// 10. Escuchadores de eventos (Listeners)
 btnStart.addEventListener('click', startQuiz);
 
 optionButtons.forEach(button => {
     button.addEventListener('click', handleOptionSelect);
 });
+
+// Listener para el botón (X) de salida
+if (btnCloseResults) {
+    btnCloseResults.addEventListener('click', closeResults);
+}
