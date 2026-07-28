@@ -122,7 +122,7 @@ function renderResults(winner, sec1, sec2) {
     resultsContainer.classList.remove('hidden');
 
     // Título dinámico
-    resultTitle.innerHTML = `<span class="result-subtitle">Tu arquetipo es:</span><br>${winner.match}% ${winner.name}`;
+    resultTitle.innerHTML = `${porcentaje}% ${arquetipoPrincipal.nombre}`;
     resultDescription.textContent = profileDetails[winner.key].description;
 
     // Bloque dinámico de resonancia secundaria
