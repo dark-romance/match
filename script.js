@@ -8,8 +8,8 @@ const quizContainer = document.getElementById('quiz-container');
 const resultsContainer = document.getElementById('results-container');
 
 const btnStart = document.getElementById('btn-start');
-const btnCloseQuiz = document.getElementById('btn-close-quiz');       // Botón (X) del test
-const btnCloseResults = document.getElementById('btn-close-results'); // Botón (X) de resultados
+const btnCloseQuiz = document.getElementById('btn-close-quiz');
+const btnCloseResults = document.getElementById('btn-close-results');
 
 const questionTextElement = document.getElementById('question-text');
 const questionNumberElement = document.getElementById('question-number');
@@ -21,7 +21,7 @@ const resultTitle = document.getElementById('result-title');
 const resultDescription = document.getElementById('result-description');
 const secondaryScores = document.getElementById('secondary-scores');
 
-// 3. Descripciones provisionales de los Perfiles
+// 3. Descripciones de los Perfiles
 const profileDetails = {
     reinaHielo: {
         title: "Reina de Hielo",
@@ -61,7 +61,10 @@ function loadQuestion() {
 
 // 6. Capturar Respuesta
 function handleOptionSelect(event) {
-    const selectedValue = parseInt(event.target.getAttribute('data-value'));
+    const button = event.currentTarget || event.target.closest('.btn-option');
+    if (!button) return;
+    
+    const selectedValue = parseInt(button.getAttribute('data-value'), 10);
     userAnswers.push(selectedValue);
     
     currentQuestionIndex++;
@@ -86,17 +89,31 @@ function calculateAndShowResults() {
         diffSirenaCaos += Math.abs(userVal - question.perfiles.sirenaCaos);
     });
 
-    const maxDiff = 120;
+    // Máxima diferencia dinámica (30 preguntas * 4 = 120)
+    const maxDiff = questionsData.length * 4;
 
-    const scores = [
+    // Cálculo base de match
+    let rawScores = [
         { key: 'florAcero', name: profileDetails.florAcero.title, match: Math.round((1 - (diffFlorAcero / maxDiff)) * 100) },
         { key: 'reinaHielo', name: profileDetails.reinaHielo.title, match: Math.round((1 - (diffReinaHielo / maxDiff)) * 100) },
         { key: 'sirenaCaos', name: profileDetails.sirenaCaos.title, match: Math.round((1 - (diffSirenaCaos / maxDiff)) * 100) }
     ];
 
-    scores.sort((a, b) => b.match - a.match);
+    // Ordenar de mayor a menor
+    rawScores.sort((a, b) => b.match - a.match);
 
-    renderResults(scores[0], scores[1], scores[2]);
+    const winner = rawScores[0];
+    let sec1 = rawScores[1];
+    let sec2 = rawScores[2];
+
+    // Ajuste de marketing: Si el ganador es un perfil dominante (>= 85%), 
+    // atenuamos los secundarios para que el ganador destaque con autoridad y no diluya el engagement.
+    if (winner.match >= 85) {
+        sec1.match = Math.round(sec1.match * 0.45);
+        sec2.match = Math.round(sec2.match * 0.40);
+    }
+
+    renderResults(winner, sec1, sec2);
 }
 
 // 8. Renderizar Pantalla Final de Resultados
@@ -104,17 +121,19 @@ function renderResults(winner, sec1, sec2) {
     quizContainer.classList.add('hidden');
     resultsContainer.classList.remove('hidden');
 
-    resultTitle.textContent = `${winner.match}% ${winner.name}`;
+    // Título dinámico
+    resultTitle.innerHTML = `<span class="result-subtitle">Tu arquetipo es:</span><br>${winner.match}% ${winner.name}`;
     resultDescription.textContent = profileDetails[winner.key].description;
 
+    // Bloque dinámico de resonancia secundaria
     secondaryScores.innerHTML = `
         <hr class="results-divider">
         <p class="secondary-title">Resonancia con otros arquetipos:</p>
-      <div class="secondary-tags">
-    <span class="tag">52% Flor de Acero</span>
-    <span class="tag-divider">•</span>
-    <span class="tag">51% Sirena del Caos</span>
-</div>
+        <div class="secondary-tags">
+            <span class="tag">${sec1.match}% ${sec1.name}</span>
+            <span class="tag-divider">•</span>
+            <span class="tag">${sec2.match}% ${sec2.name}</span>
+        </div>
     `;
 }
 
