@@ -25,15 +25,15 @@ const secondaryScores = document.getElementById('secondary-scores');
 const profileDetails = {
     reinaHielo: {
         title: "Reina de Hielo",
-        description: "Controlada, analítica y metodológica. Mantienes la calma en medio del caos y exiges orden y respeto en tus relaciones. Nada queda al azar en tu mundo."
+        description: "Para ti el azar no existe: mientras el mundo se desmorona en caos, tú mantienes la calma, la elegancia y la mente fría. No eres difícil de alcanzar, simplemente exiges un respeto y una lealtad que casi nadie sabe ofrecer. Pero detrás de tu estructura impenetrable, solo un intelecto a tu altura sabrá descifrar tu devoción."
     },
     florAcero: {
         title: "Flor de Acero",
-        description: "Profundamente leal, protectora y empática, pero con unos límites inquebrantables. Cuidas el corazón de quienes amas con una devoción inamovible."
+        description: "Pocas almas entienden la magia que habita en ti: un corazón capaz de entregarse con una lealtad absoluta, pero resguardado tras fronteras de acero que nadie logra romper. No buscas un amor a medias, sino a alguien dispuesto a cuidar de tu vulnerabilidad con esa misma devoción inamovible. Tu belleza es suave, pero tu raíz es indestructible."
     },
     sirenaCaos: {
         title: "Sirena del Caos",
-        description: "Vibrante, apasionada e impredecible. Te atrae la intensidad, el choque de personalidades y la adrenalina de una historia de amor sin reglas ni ataduras."
+        description: "Naciste para las aguas profundas: tus corrientes son cambiantes, impredecibles y salvajes por naturaleza. No le temes al peligro ni al choque de voluntades; te atrae el fuego, la adrenalina y la pasión que rompe cualquier regla. Quienes no saben nadar te llaman tormenta, pero tu canto solo busca arrastrar al capitán correcto hacia el abismo de tu entrega."
     }
 };
 
