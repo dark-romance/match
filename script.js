@@ -109,11 +109,12 @@ function renderResults(winner, sec1, sec2) {
 
     secondaryScores.innerHTML = `
         <hr class="results-divider">
-        <p class="secondary-title">Matices de tu personalidad:</p>
-        <div class="secondary-tags">
-            <span class="tag">${sec1.match}% ${sec1.name}</span>
-            <span class="tag">${sec2.match}% ${sec2.name}</span>
-        </div>
+        <p class="secondary-title">Resonancia con otros arquetipos:</p>
+      <div class="secondary-tags">
+    <span class="tag">52% Flor de Acero</span>
+    <span class="tag-divider">•</span>
+    <span class="tag">51% Sirena del Caos</span>
+</div>
     `;
 }
 
