@@ -121,8 +121,8 @@ function renderResults(winner, sec1, sec2) {
     quizContainer.classList.add('hidden');
     resultsContainer.classList.remove('hidden');
 
-    // Título dinámico
-    resultTitle.innerHTML = `${porcentaje}% ${arquetipoPrincipal.nombre}`;
+    // Título dinámico usando la variable winner
+    resultTitle.textContent = `${winner.match}% ${winner.name}`;
     resultDescription.textContent = profileDetails[winner.key].description;
 
     // Bloque dinámico de resonancia secundaria
@@ -136,7 +136,6 @@ function renderResults(winner, sec1, sec2) {
         </div>
     `;
 }
-
 // 9. Cancelar Test / Cerrar Resultados
 function resetToHome() {
     quizContainer.classList.add('hidden');
